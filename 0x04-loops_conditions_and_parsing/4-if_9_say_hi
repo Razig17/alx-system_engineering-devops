@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Displays Best School 10 times and Hi after the nth time
+i=1
+
+while [ $i -le 10 ]; do
+  echo "Best School"
+  if [ $i = 9 ]; then
+    echo "Hi"
+  fi
+  ((i++))
+done
