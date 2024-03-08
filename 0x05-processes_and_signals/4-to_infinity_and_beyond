@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Displays To infinity and beyond indefinitely.
 
-until [ 1 != 1 ]; do
+until [ $$ = 1 ]; do
   sleep 2
   echo "to infinity and beyond"
   
