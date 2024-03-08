@@ -2,6 +2,7 @@
 # Displays To infinity and beyond indefinitely.
 
 until [ 1 != 1 ]; do
-  echo "to infinity and beyond"
   sleep 2
+  echo "to infinity and beyond"
+  
 done
