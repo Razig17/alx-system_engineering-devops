@@ -6,7 +6,7 @@ i=0
 j=0
 
 while [ $i -le 12 ]; do
-  echo "houre: $i"
+  echo "Hour: $i"
   ((i++))
   j=1
   while [ $j -le 59 ]; do
