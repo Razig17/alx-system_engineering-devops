@@ -6,11 +6,9 @@ if [ $# -lt 3 ]; then
     exit 1
 fi
 
-
 file="$1"
 ip="$2"
 username="$3"
 SSH_KEY="$4"
 
-scp -o StrictHostKeyChecking=no -i "$SSH_KEY" "$file" "$username"@:"$ip"~/
-
+scp -o StrictHostKeyChecking=no -i "$SSH_KEY" "$file" "$username"@"$ip":~/
