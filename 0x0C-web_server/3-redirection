@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# A Bash script that Install nginx and make listen on port 80
+# Serve a web-page that would return a Hello World string
+
+sudo apt-get update -y
+
+sudo apt-get install nginx -y
+
+sudo ufw allow 'Nginx HTTP'
+
+sudo service nginx start
+
+sudo cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
+
+echo -e "Hello World!" | dd status=none of=/var/www/html/index.nginx-debian.html
+
+sudo sed -i '24i\       rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+
+sudo service nginx restart
