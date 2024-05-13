@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# A Bash script that configures a new Ubuntu machine to work as a load balancer for two servers using HAProxy.
+apt-get -y update
+sudo apt-get -y install haproxy
+
+sudo systemctl enable haproxy
+
+sudo systemctl start haproxy
+
+backend="
+backend web-backend
+   balance roundrobin
+   server web1 100.25.151.99:80 check
+   server web2 52.3.247.32:80 check"
+frontend="
+frontend http
+   bind *:80
+   mode http
+
+   default_backend web-backend"
+echo "$frontend" >> /etc/haproxy/haproxy.cfg
+echo "$backend" >> /etc/haproxy/haproxy.cfg
+service haproxy restart
