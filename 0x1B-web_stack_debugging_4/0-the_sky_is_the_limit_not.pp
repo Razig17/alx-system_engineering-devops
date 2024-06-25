@@ -6,5 +6,5 @@
 
 # Restart nginx service
   exec { 'restart_nginx':
-    command     => "service restart nginx",
+    command => "/bin/service nginx restart"
   }
