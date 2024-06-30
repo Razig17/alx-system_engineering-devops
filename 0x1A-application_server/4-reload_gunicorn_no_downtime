@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # Gracefully reloads Gunicorn.
 
-pgrep gunicorn | xargs kill -HUP 
+master=$(pgrep gunicorn | head -1)
+kill -HUP "$master"
